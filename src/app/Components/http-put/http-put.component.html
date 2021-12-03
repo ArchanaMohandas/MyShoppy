@@ -1,0 +1,12 @@
+<div>
+    userID: <input type="number" [(ngModel)]="user.id"> 
+    <button (click)="getUser()">SEARCH</button>
+</div>
+
+<div *ngIf="EnableEdit">
+    <div>
+    Name: <input type="text" [(ngModel)]="user.name"></div>
+   <div>user Type: <input type="text" [(ngModel)]="user.type"></div>
+   <div> <button (click)="editUser()">Update</button></div>
+</div>
+

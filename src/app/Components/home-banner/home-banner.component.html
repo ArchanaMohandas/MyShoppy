@@ -1,0 +1,111 @@
+<table>
+    <tr>
+        <td style="width:40%;border: gray 2px solid;">
+            <div>
+                <button  (click)="show('1')">Login</button> 
+                <button [ngClass]="'success'"  (click)="show('2')">Register</button>
+                <button [ngClass]="isLoggedIn?'success':'danger'" [disabled]="!isLoggedIn" (click)="show('3')">Update Profile</button>
+                <button  [disabled]="!isLoggedIn" (click)="show('4')">View Customer Data</button>
+            </div>
+        <div [ngSwitch]="num">
+            <div *ngSwitchCase="1" [ngStyle]="{'background-color':bgcolor==''?'white':bgcolor}">
+                <div>
+                    <table>
+                        <tr>UserName:<input type="text" [(ngModel)]="username"></tr>
+                        <tr>Password:<input type="password" [(ngModel)]="password"></tr>
+                        <tr><input type="button" value="Login" (click)="login()"></tr>
+                    </table>
+                    
+                   
+                    
+                </div>
+        
+            </div>
+        
+            <div *ngSwitchCase="2">
+                <table>
+                    <tr>
+                        First Name: <input type="text" [(ngModel)]="firstname">
+                    </tr>
+                    <tr>
+                        Last Name: <input type="text" [(ngModel)]="lastname">
+                    </tr>
+                    <tr>
+                        UserName: <input type="text" [(ngModel)]="username">
+                    </tr>
+                    <tr>
+                        Password: <input type="password" [(ngModel)]="password">
+                    </tr>
+                    <tr>
+                        <input type="button" (click)="register()" value="Register">
+                    </tr>
+                </table>
+        
+            </div>
+        
+            <div *ngSwitchCase="3">
+        UserName:<input type="text" [(ngModel)]="username">
+        Current Password: <input type="password" [(ngModel)]="password">
+        New Password:<input type="password" [(ngModel)]="newpassword">
+        <input type="button" value="Update" (click)="updatePassword()">
+        
+            </div>
+        
+            <div *ngSwitchCase="4">
+                <!-- <app-view-user-data [user]="currentUser"></app-view-user-data> -->
+            </div>
+        
+        </div>
+        </td>
+        <td style="width:60%; border: 2px solid gray;" *ngIf="isLoggedIn">
+        <table>
+            <tr>
+                <th>
+                First Name
+                </th>
+                <th>Last Name</th>
+               
+            </tr>
+          
+            <tr *ngFor="let user of UserList">
+                <td>{{user.FirstName}}</td>
+                <td>{{user.LastName}}</td>
+                
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+
+
+<!-- <p cusTheme color="green" size="30px">Custom directive example</p>
+
+
+<div>
+    <p>{{123213123 | currency:'EUR'}}</p>
+    <div mystyle>{{name | lowercase}}</div>
+    <div>{{name}}</div>
+</div>
+
+<h2>{{today}}</h2>
+<h2>{{today | date}}</h2>
+<h2>{{today | date:'short'}}</h2>
+<h2>{{today | date:'shortDate'}}</h2>
+
+<p>{{msg}}</p>
+
+<p>{{msg | slice:15:30}}</p>
+
+
+<h1>{{no}}</h1>
+<h1>{{no|number:'8.1-2'}}</h1>
+
+<h2>{{no|percent:'1.4-4'}}</h2>
+
+
+<div>
+   <p>Farenheit: <input type="text" [(ngModel)]="farenheit">
+{{farenheit | tempPipe:'C'}}</p>
+   <p>Celsius: <input type="text" [(ngModel)]="celsius">
+{{celsius | tempPipe:'F'}}</p>
+</div> -->

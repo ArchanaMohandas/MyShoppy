@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>User Role</th>
+        
+    </tr>
+
+    <tr *ngFor="let repo of repos">
+        <td>{{repo.id}}</td>
+        <td>{{repo.name}}</td>
+        <td>{{repo.type}}</td>
+    </tr>
+</table>

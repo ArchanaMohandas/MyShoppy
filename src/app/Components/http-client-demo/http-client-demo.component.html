@@ -1,0 +1,57 @@
+<div style="height: 400px;width: 1400px;border: 2px solid burlywood;">
+    <div>
+        <button  (click)="show('1')">GET</button> 
+        <button  (click)="show('2')">POSt</button>
+        <button  (click)="show('3')">PUT</button>
+        <button  (click)="show('4')">DELETE</button>
+    </div>
+   
+                
+            <div [ngSwitch]="num">
+                <div *ngSwitchCase="1">
+                   <app-http-get></app-http-get>
+            
+                </div>
+            
+                <div *ngSwitchCase="2">
+                    <app-http-post></app-http-post>
+                    <!-- <table>
+                        <tr>
+                            First Name: <input type="text" [(ngModel)]="firstname">
+                        </tr>
+                        <tr>
+                            Last Name: <input type="text" [(ngModel)]="lastname">
+                        </tr>
+                        <tr>
+                            UserName: <input type="text" [(ngModel)]="username">
+                        </tr>
+                        <tr>
+                            Password: <input type="password" [(ngModel)]="password">
+                        </tr>
+                        <tr>
+                            <input type="button" (click)="register()" value="Register">
+                        </tr>
+                    </table> -->
+            
+                </div>
+            
+                <div *ngSwitchCase="3">
+                    <app-http-put></app-http-put>
+            <!-- UserName:<input type="text" [(ngModel)]="username">
+            Current Password: <input type="password" [(ngModel)]="password">
+            New Password:<input type="password" [(ngModel)]="newpassword">
+            <input type="button" value="Update" (click)="updatePassword()">
+             -->
+                </div>
+            
+                <div *ngSwitchCase="4">
+                    <app-http-delete></app-http-delete>
+                    <!-- <app-view-user-data [user]="currentUser"></app-view-user-data> -->
+                </div>
+            
+            </div>
+            
+          
+     
+
+</div>
